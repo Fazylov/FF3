@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive iFrame</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 60vh;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Test Website OS</h1>
+
+<p>Check:</p>
+
+<iframe id="responsiveFrame" frameborder="0" allowfullscreen></iframe>
+
+<script>
+    // Получение строки user agent
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    // Установка URL в зависимости от user agent
+    const iframe = document.getElementById('responsiveFrame');
+    if (userAgent.includes('android')) {
+        iframe.src = 'https://customer.freedompay.money/v1/merchant/550011/card/payment?pg_payment_id=3087172e99ba6bf8a237cede6ecc8752';
+    } else if (userAgent.includes('iphone')) {
+        iframe.src = 'https://customer.freedompay.money/v1/merchant/550011/card/payment?pg_payment_id=3087172e99ba6bf8a237cede6ecc8752';
+    } else {
+        // По умолчанию, если не определено
+        iframe.src = 'https://customer.freedompay.money/v1/merchant/550011/card/payment?pg_payment_id=3087172e99ba6bf8a237cede6ecc8752';
+    }
+</script>
+
+</body>
+</html>
